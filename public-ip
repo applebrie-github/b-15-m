@@ -1,7 +1,16 @@
 {
   "error": {
-    "message": "unable to authenticate",
-    "code": "unauthorized",
-    "details": null
+    "message": "SSH key 'dev-sec-ops@perfect-system' not found",
+    "code": "invalid_input",
+    "details": {
+      "fields": [
+        {
+          "name": "ssh_keys",
+          "messages": [
+            "SSH key 'dev-sec-ops@perfect-system' not found"
+          ]
+        }
+      ]
+    }
   }
 }
