@@ -1,0 +1,28 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+packages:
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - gnupg-agent
+  - software-properties-common
+runcmd:
+  - ufw allow OpenSSH
+  - ufw allow 80/tcp
+  - ufw allow 443/tcp
+  - ufw allow 3000/tcp
+  - ufw enable
+  - apt install -y debian-keyring debian-archive-keyring apt-transport-https
+  - curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+  - curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
+  - apt update
+  - apt install caddy
+  - apt install docker.io -y
+  - rm -rf /etc/caddy/Caddyfile
+  - echo "xportalx" > /etc/caddy/Caddyfile
+  - echo "reverse_proxy localhost:3030"
+  - systemctl restart caddy   
+  - docker login --username applebrie --password HDcDPm7w4GLjgtKRN7g85Kh68p8qZZgi 
+  - docker run -d -p 3030:3000   --restart always --pull always applebrie/xportalx:latest
+  
