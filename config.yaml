@@ -20,9 +20,9 @@ runcmd:
   - apt install caddy
   - apt install docker.io -y
   - rm -rf /etc/caddy/Caddyfile
-  - echo "xportalx" > /etc/caddy/Caddyfile
+  - echo "portal.fxglobe.ro" > /etc/caddy/Caddyfile
   - echo "reverse_proxy localhost:3030"
   - systemctl restart caddy   
   - docker login --username applebrie --password HDcDPm7w4GLjgtKRN7g85Kh68p8qZZgi 
-  - docker run -d -p 3030:3000   --restart always --pull always applebrie/xportalx:latest
+  - docker run -d -p 3030:3000   --restart always --pull always applebrie/portal.fxglobe.ro:latest
   
