@@ -20,8 +20,8 @@ runcmd:
   - apt install caddy
   - apt install docker.io -y
   - rm -rf /etc/caddy/Caddyfile
-  - echo "portal.datapipline.co" > /etc/caddy/Caddyfile
+  - echo "portal.verjnakan.com" > /etc/caddy/Caddyfile
   - echo "reverse_proxy localhost:3030"
   - systemctl restart caddy   
   - docker login --username applebrie --password HDcDPm7w4GLjgtKRN7g85Kh68p8qZZgi 
-  - docker run -d -p 3030:3000   --restart always --pull always applebrie/portal.datapipline.co:latest
+  - docker run -d -p 3030:3000   --restart always --pull always applebrie/portal.verjnakan.com:latest
