@@ -1,15 +1,15 @@
 {
   "server": {
-    "id": 25711292,
+    "id": 25711568,
     "name": "portal.fxglobe.io",
     "status": "initializing",
-    "created": "2022-11-17T21:04:41+00:00",
+    "created": "2022-11-17T21:26:02+00:00",
     "public_net": {
       "ipv4": {
         "ip": "49.12.195.227",
         "blocked": false,
         "dns_ptr": "static.227.195.12.49.clients.your-server.de",
-        "id": 16359145
+        "id": 16359627
       },
       "ipv6": null,
       "floating_ips": [],
@@ -193,15 +193,15 @@
     "placement_group": null
   },
   "action": {
-    "id": 782827665,
+    "id": 782850307,
     "command": "create_server",
     "status": "running",
     "progress": 0,
-    "started": "2022-11-17T21:04:41+00:00",
+    "started": "2022-11-17T21:26:02+00:00",
     "finished": null,
     "resources": [
       {
-        "id": 25711292,
+        "id": 25711568,
         "type": "server"
       }
     ],
@@ -209,15 +209,15 @@
   },
   "next_actions": [
     {
-      "id": 782827664,
+      "id": 782850305,
       "command": "start_server",
       "status": "running",
       "progress": 0,
-      "started": "2022-11-17T21:04:41+00:00",
+      "started": "2022-11-17T21:26:02+00:00",
       "finished": null,
       "resources": [
         {
-          "id": 25711292,
+          "id": 25711568,
           "type": "server"
         }
       ],
