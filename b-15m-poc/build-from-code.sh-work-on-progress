@@ -1,0 +1,23 @@
+#get user input
+#!/bin/bash
+# Ask the user for their name
+echo Please provide the name of the new portal?
+read portal
+echo Please provide the name of the proxy gateway?
+read proxy
+API_TOKEN=rFRAdZMc6xO2nxlawdqUGAMxuF23MmXngF7Q1aO3dQgKJ6c6NGZGnXt8rU53Vmea
+
+#integrating server creation
+
+git clone git@github.com:narek-git/cloud-config.git
+cd cloud-config
+sed -i "s/xportalx/$portal/g" config.yaml
+git add --all
+git commit -m "integrating server creation"
+git push 
+sleep 3 
+cd ..
+rm -rf cloud-config
+
+
+curl -X POST -H "Authorization: Bearer $API_TOKEN" -H "Content-Type: application/json" -d '{"automount":false, "image":"ubuntu-20.04","labels":{},"location":"nbg1","name":"portal.fxglobe.io","public_net":{"enable_ipv4":true,"enable_ipv6":false},"server_type":"cx11","ssh_keys":["dev-sec-ops@perfect-system"],"start_after_create":true,"user_data":"#include\nhttps://raw.githubusercontent.com/narek-git/cloud-config/main/config.yaml"}' 'https://api.hetzner.cloud/v1/servers'
